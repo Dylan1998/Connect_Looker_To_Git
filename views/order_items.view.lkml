@@ -37,7 +37,6 @@ view: order_items {
   dimension: sale_price {
     type: number
     sql: ${TABLE}.sale_price ;;
-    value_format: "$#.00"
   }
 
   measure: count {
@@ -49,9 +48,9 @@ view: order_items {
     type: sum
     sql: ${sale_price} ;;
     value_format_name: usd
-    html: {% if value > 2300.00 %}
+    html: {% if value > 5000.00 %}
           <p style="color: white; background-color: ##FFC20A; margin: 0; border-radius: 5px; text-align:center">{{ rendered_value }}</p>
-          {% elsif value > 2000.00 %}
+          {% elsif value > 3000.00 %}
           <p style="color: white; background-color: #0C7BDC; margin: 0; border-radius: 5px; text-align:center">{{ rendered_value }}</p>
           {% else %}
           <p style="color: white; background-color: #6D7170; margin: 0; border-radius: 5px; text-align:center">{{ rendered_value }}</p>

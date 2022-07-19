@@ -79,6 +79,17 @@ view: users {
     sql: ${TABLE}.state ;;
   }
 
+  dimension: state_link {
+    type: string
+    sql: ${TABLE}.state ;;
+    map_layer_name: us_states
+    html: {% if _explore._name == "order_items" %}
+          <a href="/explore/ecommerce_dylanorlando/order_items?fields=users.id,users.first_name,users.last_name&sorts=users.id&f[users.state]= {{ value }}">{{ value }}</a>
+        {% else %}
+          <a href="/explore/ecommerce_dylanorlando/users?fields=users.id,users.first_name,users.last_name&sorts=users.id&f[users.state]={{ value }}">{{ value }}</a>
+        {% endif %} ;;
+  }
+
   dimension: traffic_source {
     type: string
     sql: ${TABLE}.traffic_source ;;

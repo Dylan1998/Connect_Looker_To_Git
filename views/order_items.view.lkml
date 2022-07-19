@@ -44,4 +44,18 @@ view: order_items {
     type: count
     drill_fields: [id, orders.id, inventory_items.id]
   }
+
+  measure: total_revenue_conditional {
+    type: sum
+    sql: ${sale_price} ;;
+    value_format_name: usd
+    html: {% if value > 2300.00 %}
+          <p style="color: white; background-color: ##FFC20A; margin: 0; border-radius: 5px; text-align:center">{{ rendered_value }}</p>
+          {% elsif value > 2000.00 %}
+          <p style="color: white; background-color: #0C7BDC; margin: 0; border-radius: 5px; text-align:center">{{ rendered_value }}</p>
+          {% else %}
+          <p style="color: white; background-color: #6D7170; margin: 0; border-radius: 5px; text-align:center">{{ rendered_value }}</p>
+          {% endif %}
+          ;;
+  }
 }

@@ -2,6 +2,18 @@ view: users {
   sql_table_name: public.users ;;
   drill_fields: [id]
 
+  filter: select_traffic_source {
+    type: string
+    suggest_explore: order_items
+    suggest_dimension: users.traffic_source
+  }
+
+  dimension: hidden_traffic_source_filter {
+    hidden: yes
+    type: yesno
+    sql: {% condition select_traffic_source %} ${traffic_source} {% endcondition %} ;;
+  }
+
   dimension: id {
     primary_key: yes
     type: number
@@ -103,5 +115,11 @@ view: users {
   measure: count {
     type: count
     drill_fields: [id, first_name, last_name, orders.count]
+  }
+
+  measure: dynamic_count {
+    type: count_distinct
+    sql: ${id} ;;
+    filters: [ hidden_traffic_source_filter: "Yes" ]
   }
 }

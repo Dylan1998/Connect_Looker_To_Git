@@ -68,6 +68,12 @@ view: users {
     sql: ${TABLE}.last_name ;;
   }
 
+  dimension: order_history_button {
+    label: "Order History"
+    sql: ${TABLE}.id ;;
+    html: <a href="/explore/ecommerce_dylanorlando/order_items?fields=order_items.id,order_items.sale_price,orders.status,users.city,users.state,users.zip&f[users.id]={{ value }}"><button>Order History</button></a> ;;
+  }
+
   dimension: state {
     type: string
     sql: ${TABLE}.state ;;

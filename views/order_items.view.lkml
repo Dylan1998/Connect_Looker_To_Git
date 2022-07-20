@@ -98,4 +98,10 @@ view: order_items {
     sql: MAX(${returned_date}) ;;
     convert_tz: no
   }
+
+  measure: count_distinct_orders {
+    type: count_distinct
+    sql: ${order_id} ;;
+  }
+
 }

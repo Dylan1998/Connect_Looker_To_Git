@@ -58,6 +58,8 @@ view: order_items {
           ;;
   }
 
+
+
   parameter: select_timeframe {
     type: unquoted
     default_value: "returned_month"
@@ -102,6 +104,12 @@ view: order_items {
   measure: count_distinct_orders {
     type: count_distinct
     sql: ${order_id} ;;
+  }
+
+  measure: total_sales {
+    type: sum
+    sql: ${sale_price} ;;
+    value_format_name: usd_0
   }
 
 }

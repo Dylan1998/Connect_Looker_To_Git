@@ -25,11 +25,11 @@ view: user_facts {
 
   measure: average_lifetime_sale_price {
     type: average
-    sql: ${TABLE}.order_items.sum_of_sale_price ;;
+    sql: ${TABLE}."order_items.sum_of_sale_price" ;;
   }
   measure: average_lifetime_order_items_count {
     type: average
-    sql: ${TABLE}.order_items.count_distinct_orders ;;
+    sql: ${TABLE}."order_items.count_distinct_orders" ;;
   }
 
   dimension: order_items_order_id {

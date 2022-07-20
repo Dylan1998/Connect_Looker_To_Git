@@ -9,6 +9,7 @@ view: user_facts {
           COALESCE(SUM(CAST(order_items.sale_price AS DOUBLE PRECISION)), 0) AS "sum_of_sale_price"
       FROM
           "public"."order_items" AS "order_items"
+      WHERE {% condition select_date %} order_items.returned_at {% endcondition %}
       GROUP BY
           1
       HAVING (((( MIN((DATE(order_items.returned_at )))  )) IS NOT NULL)) AND (((( MAX((DATE(order_items.returned_at )))  )) IS NOT NULL))
@@ -72,5 +73,11 @@ view: user_facts {
       order_items_count,
       sum_of_sale_price
     ]
+  }
+
+  filter: select_date {
+    type: date
+    suggest_explore: order_items
+    suggest_dimension: order_items.returned_date
   }
 }

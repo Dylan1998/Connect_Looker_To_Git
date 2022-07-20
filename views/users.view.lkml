@@ -126,10 +126,20 @@ view: users {
     type:  number
     sql: length(${complete_name})  ;;
   }
+  dimension: age_tier {
+    type:  tier
+    tiers: [0,10,20,30,40,50,60,70,80,90,100]
+    style: integer
+    sql: ${age} ;;
+  }
 
   measure: dynamic_count {
     type: count_distinct
     sql: ${id} ;;
     filters: [ hidden_traffic_source_filter: "Yes" ]
+  }
+  measure: average_age {
+    type:  average
+    sql: ${age} ;;
   }
 }

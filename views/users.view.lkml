@@ -80,6 +80,11 @@ view: users {
     sql: ${TABLE}.last_name ;;
   }
 
+  dimension: complete_name{
+    type:  string
+    sql: ${first_name} || ' ' || ${last_name} ;;
+  }
+
   dimension: order_history_button {
     label: "Order History"
     sql: ${TABLE}.id ;;

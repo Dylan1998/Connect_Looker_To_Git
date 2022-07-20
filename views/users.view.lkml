@@ -122,6 +122,11 @@ view: users {
     drill_fields: [id, first_name, last_name, orders.count]
   }
 
+  dimension: length {
+    type:  number
+    sql: length(${complete_name})  ;;
+  }
+
   measure: dynamic_count {
     type: count_distinct
     sql: ${id} ;;

@@ -51,7 +51,7 @@ explore: order_items {
 
   join: brand_order_facts {
     type: left_outer
-    sql_on: ${products.brand}.product_brand} = ${brand_order_facts.brand} ;;
+    sql_on: ${products.brand} = ${brand_order_facts.brand} ;;
     relationship: many_to_one
   }
 }

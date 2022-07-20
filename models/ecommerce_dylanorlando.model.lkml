@@ -72,6 +72,19 @@ explore: orders {
   }
 }
 
+explore: orders_session {
+  description: "Start here for Event analysis"
+  fields: [ALL_FIELDS*]
+  from: orders_session
+  view_name: orders_session
+  extends: [base_orders]
+  join: users {
+    type: left_outer
+    sql_on: ${orders_session.user_id} = ${users.id} ;;
+    relationship: many_to_one
+  }
+}
+
 explore: product_facts {
   join: products {
     type: left_outer
@@ -82,6 +95,28 @@ explore: product_facts {
 
 explore: users_location  {
 
+}
+
+explore: base_orders {
+  extension: required
+  join: users_location {
+    type: left_outer
+    sql_on: ${orders_session.user_id} = ${users_location.id} ;;
+    relationship: many_to_one
+  }
+}
+
+explore: conversions {
+  description: "Start here for Conversion Analysis"
+  fields: [ALL_FIELDS*, -order_items.total_sales]
+  from: orders_session
+  view_name: orders_session
+  extends: [base_orders]
+  join: order_items {
+    type: left_outer
+    sql_on: ${order_items.order_id} = ${orders_session.id} ;;
+    relationship: many_to_many
+  }
 }
 
 explore: products {}

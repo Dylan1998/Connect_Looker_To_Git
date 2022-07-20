@@ -25,7 +25,7 @@ view: user_facts {
 
   measure: average_lifetime_sale_price {
     type: average
-    sql: ${TABLE}."order_items.sum_of_sale_price" ;;
+    sql: ${TABLE}."sum_of_sale_price" ;;
   }
   measure: average_lifetime_order_items_count {
     type: average
@@ -60,7 +60,7 @@ view: user_facts {
 
   dimension: sum_of_sale_price {
     type: number
-    sql: ${TABLE}."sum_of_sale_price" ;;
+    sql: ${TABLE}.sum_of_sale_price ;;
   }
 
   set: detail {

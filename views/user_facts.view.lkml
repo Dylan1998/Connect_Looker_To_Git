@@ -1,4 +1,4 @@
-view: sql_runner_query {
+view: user_facts {
   derived_table: {
     sql: SELECT
           "order_id" AS "order_items.order_id",

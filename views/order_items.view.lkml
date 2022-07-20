@@ -87,4 +87,15 @@ view: order_items {
     ${returned_month}
     {% endif %} ;;
   }
+
+  measure: first_returned_date {
+    type: date
+    sql: MIN(${returned_date}) ;;
+    convert_tz: no
+  }
+  measure: latest_returned_date {
+    type: date
+    sql: MAX(${returned_date}) ;;
+    convert_tz: no
+  }
 }

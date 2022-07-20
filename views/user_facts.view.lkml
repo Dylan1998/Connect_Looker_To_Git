@@ -60,7 +60,7 @@ view: user_facts {
 
   dimension: sum_of_sale_price {
     type: number
-    sql: ${TABLE}.sum_of_sale_price ;;
+    sql: ${TABLE}."sum_of_sale_price" ;;
   }
 
   set: detail {

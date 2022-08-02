@@ -4,9 +4,14 @@ connection: "thelook"
 # include all the views
 include: "/views/**/*.view"
 
+
 datagroup: ecommerce_dylanorlando_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
+}
+datagroup: test {
+  sql_trigger: SELECT (EXTRACT MONTH FROM CURRENT_TIMESTAMP() )  ;;
+  max_cache_age: "24 hours"
 }
 
 persist_with: ecommerce_dylanorlando_default_datagroup
@@ -123,3 +128,5 @@ explore: conversions {
 explore: products {}
 
 explore: users {}
+
+explore: table {}

@@ -125,6 +125,8 @@ explore: conversions {
   }
 }
 
+explore: user_facts {}
+
 explore: products {}
 
 explore: users {}

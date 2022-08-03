@@ -13,7 +13,10 @@ datagroup: test {
   sql_trigger: SELECT (EXTRACT MONTH FROM CURRENT_TIMESTAMP() )  ;;
   max_cache_age: "2 hours"
 }
-
+datagroup: cat {
+  sql_trigger: SELECT (EXTRACT MONTH FROM CURRENT_TIMESTAMP() )  ;;
+  max_cache_age: "2 hours"
+}
 persist_with: ecommerce_dylanorlando_default_datagroup
 
 explore: inventory_items {

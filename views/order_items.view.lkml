@@ -40,6 +40,11 @@ view: order_items {
     value_format: "$0.00"
   }
 
+  measure: percentage_of_totals {
+    type: percent_of_total
+    sql: ${sale_price} ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [id, orders.id, inventory_items.id]

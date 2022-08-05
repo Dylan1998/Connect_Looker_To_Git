@@ -142,3 +142,5 @@ explore: products {}
 explore: users {}
 
 explore: table {}
+
+explore: +users {}

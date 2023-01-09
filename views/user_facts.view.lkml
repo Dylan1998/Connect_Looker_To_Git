@@ -16,6 +16,8 @@ view: user_facts {
       ORDER BY
           2 DESC
        ;;
+      datagroup_trigger: cache
+    distribution_style: all
   }
 
   measure: count {

@@ -21,7 +21,7 @@ view: user_facts {
   }
 
   measure: count {
-    hidden: yes
+   # hidden: yes
     type: count
     drill_fields: [detail*]
   }

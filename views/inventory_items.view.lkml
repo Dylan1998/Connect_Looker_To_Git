@@ -52,7 +52,7 @@ view: inventory_items {
     drill_fields: [id, products.id, products.item_name, order_items.count]
   }
 
-  measure: average {
+  measure: average_again_two{
     type: average
     sql: ${TABLE}.sold_at ;;
   }

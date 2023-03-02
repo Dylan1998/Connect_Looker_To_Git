@@ -14,7 +14,7 @@ datagroup: test {
   max_cache_age: "2 hours"
 }
 datagroup: cache {
-  sql_trigger: SELECT (EXTRACT MONTH FROM CURRENT_TIMESTAMP() )  ;;
+  sql_trigger: SELECT (EXTRACT DAY FROM CURRENT_TIMESTAMP() )  ;;
   max_cache_age: "24 hours"
 }
 

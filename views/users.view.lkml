@@ -142,4 +142,8 @@ view: users {
     type:  average
     sql: ${age} ;;
   }
+  measure: dif {
+    type: number
+    sql: ${count}-${average_age} ;;
+  }
 }
